@@ -1,0 +1,367 @@
+/* ===============================
+   VARIÁVEIS GLOBAIS
+================================ */
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+
+  --color-bg: #f4f6f9;
+  --color-white: #ffffff;
+
+  --color-text: #1e293b;
+  --color-muted: #64748b;
+  --color-title: #334155;
+
+  --color-border: #cbd5e1;
+  --color-border-light: #e5e7eb;
+  --color-card-bg: #f9fafb;
+
+  --color-hover: #eef2ff;
+
+  --color-danger-bg: #fee2e2;
+  --color-danger-text: #991b1b;
+  --color-danger-border: #ef4444;
+
+  --radius-sm: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.05);
+  --shadow-dropdown: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+  --transition: 0.2s ease;
+}
+
+/* ===============================
+   RESET GLOBAL
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ===============================
+   BASE
+================================ */
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  padding: 30px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ===============================
+   HEADER
+================================ */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header h1 {
+  font-size: 32px;
+  color: var(--color-primary);
+}
+
+.header p {
+  color: var(--color-muted);
+  margin-top: 6px;
+}
+
+/* ===============================
+   LAYOUT PRINCIPAL
+================================ */
+.agenda-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+
+  background: var(--color-white);
+  padding: 25px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-soft);
+}
+
+.card {
+  background: var(--color-white);
+  padding: 20px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border-light);
+}
+
+.card h2 {
+  margin-bottom: 15px;
+  font-size: 18px;
+  color: var(--color-title);
+}
+
+/* ===============================
+   FORMULÁRIOS
+================================ */
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+
+  font-size: 14px;
+  color: var(--color-text);
+  background: var(--color-white);
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+/* ===============================
+   CAMPO DE DATA PERSONALIZADO
+================================ */
+.campo-data-personalizado {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.campo-data-personalizado input {
+  cursor: pointer;
+}
+
+.dropdown-datas {
+  display: none;
+  position: absolute;
+  top: 48px;
+  left: 0;
+  right: 0;
+
+  max-height: 220px;
+  overflow-y: auto;
+
+  background: var(--color-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-dropdown);
+
+  z-index: 20;
+}
+
+.dropdown-datas.ativo {
+  display: block;
+}
+
+.data-opcao {
+  padding: 12px;
+
+  font-size: 14px;
+  cursor: pointer;
+
+  border-bottom: 1px solid #f1f5f9;
+  transition: var(--transition);
+}
+
+.data-opcao:hover {
+  background: var(--color-hover);
+  color: var(--color-primary);
+}
+
+.data-opcao:last-child {
+  border-bottom: none;
+}
+
+/* ===============================
+   HORÁRIOS
+================================ */
+.horarios {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+
+  margin-bottom: 20px;
+}
+
+.horario {
+  padding: 12px;
+
+  text-align: center;
+  font-weight: 500;
+
+  border-radius: var(--radius-md);
+  border: 1px solid #d1d5db;
+  background: var(--color-card-bg);
+
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.horario:hover {
+  background: var(--color-hover);
+}
+
+.horario.ativo {
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-color: var(--color-primary);
+}
+
+.horario.bloqueado {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+  border-color: var(--color-danger-border);
+
+  cursor: not-allowed;
+  pointer-events: none;
+  text-decoration: line-through;
+}
+
+/* ===============================
+   SERVIÇOS
+================================ */
+.servicos {
+  display: grid;
+  gap: 12px;
+}
+
+.servico-item {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 18px;
+
+  text-align: center;
+
+  border-radius: var(--radius-lg);
+  border: 1px solid #e2e8f0;
+  background: var(--color-card-bg);
+
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.servico-item:hover {
+  background: var(--color-hover);
+  border-color: var(--color-primary);
+}
+
+.servico-item input {
+  position: absolute;
+  opacity: 0;
+}
+
+.servico-item span {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.servico-item input:checked + span {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.servico-item:has(input:checked) {
+  border-color: var(--color-primary);
+  background: var(--color-hover);
+}
+
+/* ===============================
+   BOTÕES
+================================ */
+button {
+  width: 100%;
+  padding: 14px;
+
+  border: none;
+  border-radius: var(--radius-md);
+
+  background: var(--color-primary);
+  color: var(--color-white);
+
+  font-size: 15px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:hover {
+  background: var(--color-primary-dark);
+}
+
+/* ===============================
+   MODAL
+================================ */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.4);
+
+  z-index: 999;
+}
+
+.modal-box {
+  width: 100%;
+  max-width: 400px;
+
+  padding: 25px;
+  border-radius: var(--radius-lg);
+
+  background: var(--color-white);
+  text-align: center;
+}
+
+.modal-box h3 {
+  margin-bottom: 10px;
+  color: var(--color-primary);
+}
+
+.modal-box p {
+  margin-bottom: 15px;
+  color: #475569;
+}
+
+/* ===============================
+   RESPONSIVO
+================================ */
+@media (max-width: 800px) {
+  body {
+    padding: 16px;
+  }
+
+  .agenda-box {
+    grid-template-columns: 1fr;
+    padding: 18px;
+  }
+
+  .horarios {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

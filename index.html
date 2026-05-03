@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>Agendamento de Reunião</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+            <h1>Agende sua reunião</h1>
+            <p>Escolha o melhor dia e horário para conversarmos sobre seu projeto</p>
+        </div>
+
+        <div class="agenda-box">
+
+            <!-- ESQUERDA -->
+            <div class="card">
+
+                <h2>Escolha uma data</h2>
+                <div class="campo-data-personalizado">
+                    <input type="text" id="dataAgenda" placeholder="dd/mm/aaaa" maxlength="10" autocomplete="off">
+
+                    <div class="dropdown-datas" id="dropdownDatas"></div>
+                </div>
+
+                <h2>Escolha um horário</h2>
+                <div class="horarios">
+                    <div class="horario">09:00</div>
+                    <div class="horario">10:30</div>
+                    <div class="horario">14:00</div>
+                    <div class="horario">15:30</div>
+                    <div class="horario">17:00</div>
+                    <div class="horario">19:00</div>
+                </div>
+
+                <h2>Tipo de serviço</h2>
+
+                <div class="servicos">
+                    <label class="servico-item">
+                        <input type="checkbox" value="Site">
+                        <span>Desenvolvimento de Site</span>
+                    </label>
+
+                    <label class="servico-item">
+                        <input type="checkbox" value="Sistema">
+                        <span>Desenvolvimento de Sistema</span>
+                    </label>
+
+                    <label class="servico-item">
+                        <input type="checkbox" value="Agenda">
+                        <span>Agenda / Calendário Online</span>
+                    </label>
+
+                    <label class="servico-item">
+                        <input type="checkbox" value="WhatsApp">
+                        <span>Automação para WhatsApp</span>
+                    </label>
+
+                    <label class="servico-item">
+                        <input type="checkbox" value="Reunião">
+                        <span>Ainda não sei, quero uma reunião</span>
+                    </label>
+                </div>
+
+            </div>
+
+            <!-- DIREITA -->
+            <div class="card">
+
+                <h2>Seus dados</h2>
+
+                <form id="formAgenda">
+
+                    <label>Nome</label>
+                    <input type="text" id="nome">
+
+                    <label>WhatsApp</label>
+                    <input type="tel" id="telefone">
+
+                    <label>Cidade</label>
+                    <input type="text" id="cidade">
+
+                    <label>Empresa</label>
+                    <input type="text" id="empresa">
+
+                    <label>Descrição</label>
+                    <textarea id="descricao"></textarea>
+
+                    <button type="submit">Confirmar Agendamento</button>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal" id="modal">
+        <div class="modal-box">
+            <h3 id="modalTitulo"></h3>
+            <p id="modalTexto"></p>
+            <button id="btnModal">OK</button>
+        </div>
+    </div>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyAcR5PoqRjq8quENy6rrmDTdf6h5H3u5hA",
+            authDomain: "fe-tec-agenda.firebaseapp.com",
+            projectId: "fe-tec-agenda",
+            storageBucket: "fe-tec-agenda.firebasestorage.app",
+            messagingSenderId: "229857022065",
+            appId: "1:229857022065:web:6e16f3801acc2cfa780bd0"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+    </script>
+
+    <!-- SCRIPTS -->
+    <script src="main.js"></script>
+</body>
+
+</html>
